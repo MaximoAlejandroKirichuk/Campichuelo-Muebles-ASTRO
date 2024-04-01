@@ -1,0 +1,240 @@
+---
+
+---
+    <!--HEADER PARA ESCRITORIO-->
+    <header class="desktop-header">
+        <div class="logo-container">
+            <a href="http://localhost:4321/">
+                <img src="img/logo/Logo.png" class="desktop-logo" alt="Logo de la empresa">
+            </a> 
+        </div>
+        <nav class="main-menu-desktop">
+            <ul class="navigation-list-desktop">
+                <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="/productos">Productos</a></li>
+                <li><a href="/Garantia">Garantía</a></li>
+                <li><a href="/cuidados">Cuidados</a></li>
+                <li><a href="/envios">Envios</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--HEADER PARA CELULAR-->
+    <header class="mobile-header">
+        <div class="logo-container">
+            <a href="http://localhost:4321/">
+                <img src="img/logo/Logo.png" class="mobile-logo" alt="Logo de la empresa">
+            </a> 
+        </div>
+        
+        <button id="menu-toggle-button" class="menu-toggle-button">
+            <img src="img/icon/icon-menu.png" alt="Icono para abrir el menú">
+        </button>
+        <!--generado con js-->
+        
+        <nav id="main-menu" class="main-menu">
+            <ul class="navigation-list">
+                <button id="menu-close-button" class="menu-close-button" style="position: absolute; top: 5px; left: 5px; padding: 10px; border-radius: 50%;">
+                    <i class="bi bi-x-lg icon-close" style="font-size: 1.5em;"></i>
+                </button>
+                	<li><a href="/nosotros">Nosotros</a></li>
+                	<li><a href="/productos">Productos</a></li>
+                    <li><a href="/Garantia">Garantía</a></li>
+                    <li><a href="/cuidados">Cuidados</a></li>
+                    <li><a href="/envios">Plazos de fabricación y Envios</a></li>
+                </ul>       
+            </nav>
+        </header>
+        <style>
+            
+		/*HEADER MOBILE*/
+		.mobile-header {
+			position: relative; 
+			display: flex;
+			justify-content: center; 
+			align-items: center;
+			background-color: var(--primary-color);
+		}
+		
+		.logo-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.mobile-logo {
+			width: 200px;
+			color: var(--secondary-color);
+		}
+		/*Desktop header*/
+.desktop-header{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 1rem;
+}
+.logo-container-desktop {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+.desktop-logo {
+    width: 250px;
+    align-self: flex-start;
+    padding-left: 20px;
+    transition: all 0.3s ease;
+}
+
+.desktop-logo:hover {
+    transform: scale(1.1);
+}
+
+.main-menu-desktop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation-list-desktop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 1rem;
+}
+
+.navigation-list-desktop li a {
+    text-decoration: none;
+    color:var(--black);
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.navigation-list-desktop li:hover {
+	transition: color 0.3s ease, transform 0.3s ease;
+    color: var(--black);
+    transform: scale(1.2);
+}
+
+		/*Aside*/
+		.menu-toggle-button {
+			position: absolute; 
+			top: 5px; 
+			right: 0px; 
+			background: none;
+			border: none;
+			cursor: pointer;
+			height: auto;
+			width: 40px;
+		}
+		
+		
+		.main-menu {
+			display: none;
+			position: fixed;
+			top: 0;
+			right: 0;
+			width: 45%;
+			height: 100vh;
+			background-color: var(--white-color);
+			color: #000000;
+			padding: 20px;
+			box-sizing: border-box;
+			overflow-y: auto;
+			transition: transform 0.3s ease-in-out;
+			z-index: 9;
+		}
+		
+		
+		.main-menu.show {
+			display: block;
+		}
+		.navigation-list li {
+			justify-content: center;
+			align-items: center; 
+			display: block;
+			margin-top: 20%;
+			margin-bottom: 40px;
+			gap: 25%;
+			border-bottom: 1px solid var(--secondary-color); 
+			padding: 10px 0px;
+			}
+		
+		
+		.navigation-list a {
+			color: #000000;
+			text-decoration: none;
+		}
+		
+		/* cerrar aside */
+		.menu-close-button{
+			background: none;
+			border: none;
+			cursor: pointer;
+			height: auto;
+			width: 40px;
+			padding-left: 0px;
+			margin-bottom: 7px;
+			margin-top:0;
+		}
+								/*MEDIA QUERIES*/
+                                @media (min-width: 992px) {
+			.mobile-header{
+				display: none;
+			}
+			.desktop-header{
+				position: relative; 
+				display: flex;
+				background-color: var(--primary-color);
+			}
+			.main-menu-desktop{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+        </style>
+
+<script>
+	//abrir el boton de menu
+class Menu {
+    constructor(menuId, toggleButtonId) {
+        this.menuElement = document.getElementById(menuId);
+        this.toggleButton = document.getElementById(toggleButtonId);
+
+        this.toggleButton.addEventListener('click', () => this.toggleMenu());
+    }
+
+    toggleMenu() {
+        if (this.menuElement.classList.contains('show')) {
+            this.menuElement.classList.remove('show');
+        } else {
+            this.menuElement.classList.add('show');
+        }
+    }
+}
+
+// Uso de la clase
+const mainMenu = new Menu('main-menu', 'menu-toggle-button');
+
+// Cerrar el aside
+document.getElementById('menu-close-button').addEventListener('click', function() {
+    document.getElementById('main-menu').classList.remove('show');
+});
+
+
+// Oscurecer el fondo
+
+document.getElementById('menu-toggle-button').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'block';
+});
+
+document.getElementById('menu-close-button').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'none';
+});
+
+
+
+
+
+</script>
