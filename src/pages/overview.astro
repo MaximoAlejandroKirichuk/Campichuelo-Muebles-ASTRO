@@ -13,19 +13,23 @@ import OverviewStyles from "../layouts/overview-styles.astro";
         
     </head>
     <body>
-		<div id="overlay" style="display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 2;"></div> 
+        <div id="overlay" style="display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 2;"></div> 
 		
 		<div class="container ">
-
-					<a class="overviews-enlaces" href="http://localhost:4321/">Home</a> /
-					<a class="overviews-enlaces" href="/productos">Productos</a>
-				
-				
-                <main>
-                    <!--Lo voy a usar para poner informacion que pida el cliente-->
-                    <div id="mostrar-informacion-overview" class="mostrar-informacion-overview">
-                        <!--aca se muestra la informacion-->
-                    </div>
+            
+            <a class="overviews-enlaces" href="/index">Home</a> /
+            <a class="overviews-enlaces" href="/productos">Productos</a>
+            
+            
+            <main>
+                <!--Lo voy a usar para poner informacion que pida el cliente-->
+                <div id="mostrar-informacion-overview" class="mostrar-informacion-overview">
+                    <!--aca se muestra la informacion-->
+                </div>
+                <div class="contenedor-botones">
+                <a class="boton-consultar" href="https://wa.me/5491155983715">Pedir mas info</a>
+                <a href="/productos" class="boton-seguir-comprando">Seguir buscando</a>
+                </div>
         
                 </main>
             </div>
@@ -80,10 +84,6 @@ if (mostrarInformacionOverview) {
               </button>
           </div>
           <p class="parrafo-overview">${producto.detalles['texto-descripcion']}</p>
-          <div class="contenedor-botones">
-          <button class="boton-consultar"><a href="https://wa.me/5491155983715">Pedir mas info</a></button>
-          <a href="/html/productos.html"><button class="boton-seguir-comprando">Seguir buscando</button></a>
-          </div>
       `;
       
         } else {
