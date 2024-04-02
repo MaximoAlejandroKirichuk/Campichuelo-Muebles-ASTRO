@@ -1,42 +1,4 @@
----
-import Layout from "../layouts/Layout.astro";
-import Subpaginas from "../layouts/subpaginas.astro";
-import OverviewStyles from "../layouts/overview-styles.astro";
-
----
-<Layout title="Campichuelo">
-	<!DOCTYPE html>
-	<html lang="en">
-		<meta charset="UTF-8">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        
-    </head>
-    <body>
-		<div id="overlay" style="display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 2;"></div> 
-		
-		<div class="container ">
-
-					<a class="overviews-enlaces" href="http://localhost:4321/">Home</a> /
-					<a class="overviews-enlaces" href="/productos">Productos</a>
-				
-				
-                <main>
-                    <!--Lo voy a usar para poner informacion que pida el cliente-->
-                    <div id="mostrar-informacion-overview" class="mostrar-informacion-overview">
-                        <!--aca se muestra la informacion-->
-                    </div>
-        
-                </main>
-            </div>
-			<Subpaginas />
-			<OverviewStyles />
-        </body>
-        </html>
-
-
-<script>
-    // En la página de vista previa (overview)
+// En la página de vista previa (overview)
 const mostrarInformacionOverview = document.getElementById('mostrar-informacion-overview');
 
 if (mostrarInformacionOverview) {
@@ -57,6 +19,12 @@ if (mostrarInformacionOverview) {
         const producto = productosFiltrados.find(prod => prod.id === productoId);
         if (producto) {
           mostrarInformacionOverview.innerHTML = `
+          <button>
+            <p>
+              <a class="overviews-enlaces" href="/html/index.html">Home</a>/
+              <a class="overviews-enlaces" href="/html/productos.html">Productos</a>
+            </p>
+          </button>
           <h2 class="titulo-sub-paginas">${producto.titulo}</h2>
           <div id="carouselExample" class="carousel slide">
               <div class="carousel-inner">
@@ -99,6 +67,3 @@ if (mostrarInformacionOverview) {
   console.error('Elemento mostrarInformacionOverview no encontrado');
 }
 
-
-</script>
-</Layout>
